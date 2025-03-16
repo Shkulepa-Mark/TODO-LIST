@@ -6,7 +6,7 @@ public class TaskDAO {
     public List<Task> getAllTasks() {
         List<Task> tasks = new ArrayList<Task>();
 
-        String query = "SELECT * FROM Task";
+        String query = "SELECT * FROM Tasks";
 
         try (Connection connection = DataBaseConnection.getConnection()) {
             Statement statement = connection.createStatement();
@@ -28,7 +28,7 @@ public class TaskDAO {
     }
 
     public void addTask(Task task) {
-        String query = "INSERT INTO Task (title, description) VALUES (?, ?)";
+        String query = "INSERT INTO Tasks (title, description) VALUES (?, ?)";
 
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -41,7 +41,7 @@ public class TaskDAO {
     }
 
     public void deleteTask(int taskId) {
-        String query = "DELETE FROM Task WHERE id = ?";
+        String query = "DELETE FROM Tasks WHERE id = ?";
 
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -53,7 +53,7 @@ public class TaskDAO {
     }
 
     public void updateTaskStatus(int taskId, boolean status) {
-        String query = "UPDATE Task SET status = ? WHERE id = ?";
+        String query = "UPDATE Tasks SET status = ? WHERE id = ?";
 
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
