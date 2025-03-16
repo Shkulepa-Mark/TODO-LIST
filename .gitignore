@@ -1,0 +1,15 @@
+.idea
+target/
+out/
+
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+src/main/resources/config.properties
+
+pom.xml
+
+*.iws
+*.iml
+*.ipr
