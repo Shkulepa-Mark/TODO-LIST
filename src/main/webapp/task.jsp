@@ -1,6 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.todo.Task" %>
+<%@ page import="model.Task" %>
 <!DOCTYPE html>
 <html>
 <head>

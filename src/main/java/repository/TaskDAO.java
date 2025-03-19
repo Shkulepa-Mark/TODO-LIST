@@ -1,4 +1,6 @@
-import com.example.todo.Task;
+package repository;
+
+import model.Task;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,4 +1,6 @@
-import com.example.todo.Task;
+package servlet;
+
+import repository.TaskDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,23 +9,16 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/addTask")
-public class AddServlet extends HttpServlet {
+@WebServlet("/updateTask")
+public class UpdateServlet extends HttpServlet {
     private TaskDAO taskDAO = new TaskDAO();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String title = req.getParameter("title");
-        String description = req.getParameter("description");
+        int taskId = Integer.parseInt(req.getParameter("id"));
+        boolean newStatus = !taskDAO.getTaskById(taskId).isStatus();
 
-        Task task = new Task(title, description);
-
-        try {
-            taskDAO.addTask(task);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        taskDAO.updateTaskStatus(taskId, newStatus);
         resp.sendRedirect("displayTasks");
     }
 }

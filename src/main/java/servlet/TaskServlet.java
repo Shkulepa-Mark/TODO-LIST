@@ -1,4 +1,7 @@
-import com.example.todo.Task;
+package servlet;
+
+import model.Task;
+import repository.TaskDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
